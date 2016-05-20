@@ -1,0 +1,34 @@
+{
+  "name": "AudioDownloader",
+  "description": "Find and download each audio file in the current page",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "version": "2.0",
+  "permissions": [
+    "activeTab"
+  ],
+  "default_locale": "en",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "scripts.babel/contentscript.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "scripts": ["scripts.babel/background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Find audio files"
+  },
+  "manifest_version": 2
+}
