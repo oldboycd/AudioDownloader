@@ -1,6 +1,6 @@
 {
   "name": "AudioDownloader",
-  "description": "Find and download each audio file in the current page",
+  "description": "Find and create downloads of every audio file in Whatsapp web",
   "icons": {
     "16": "images/icon-16.png",
     "128": "images/icon-128.png"
@@ -17,14 +17,18 @@
         "https://*/*"
       ],
       "js": [
-        "scripts.babel/contentscript.js"
+        "scripts.babel/AudioManager.js",
+        "scripts.babel/App.js"
       ],
       "run_at": "document_end",
       "all_frames": false
     }
   ],
   "background": {
-    "scripts": ["scripts.babel/background.js"],
+    "scripts": [
+      "scripts.babel/AudioManager.js",
+      "scripts.babel/background.js"
+    ],
     "persistent": false
   },
   "browser_action": {
