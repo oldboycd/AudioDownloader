@@ -11,11 +11,11 @@ var AudioManager = (function () {
 
     if (main !== null) {
       icon = document.getElementsByClassName('btn-audio icon icon-audio-play')[0]; //'blob:https%3A//web.whatsapp.com/3fb66b51-facf-43db-b5f5-1d5078705f40';
-      style = (typeof icon === 'undefined') ? '' : icon.currentStyle || window.getComputedStyle(icon, false);
+      style = (typeof icon === 'undefined') ? '' : (icon.currentStyle || window.getComputedStyle(icon, false));
       img = (typeof icon === 'undefined') ? '' : style.backgroundImage.slice(4, -1);
 
-      for (var i=0; i < audios.length; i++) {
-        audio = document.getElementsByClassName('audio')[i];
+      for (var i = 0; i < audios.length; i++) {
+        audio = audios[i].parentNode;
         if ((typeof audio !== 'undefined') && (audio.className !== 'audio is-processed')) {
           audio.className = 'audio is-processed';
           file = audio.getElementsByTagName('audio')[0];
@@ -37,8 +37,8 @@ var AudioManager = (function () {
                               'display:block;' +
                               'position: absolute;' +
                               'left: 50%;' +
-                              'margin-left: -7px;' +
-                              'top: 50%;' +
+                                'margin-left: -7px;' +
+                                'top: 50%;' +
                               'margin-top: -9px;';
             a.appendChild(span);
             a.title = 'Click to download';
@@ -47,10 +47,10 @@ var AudioManager = (function () {
                               'background: rgba(255,255,255,0.7);' +
                               'border-radius: 5px;' +
                               'border: 1px solid #fff;' +
-                              'text-indent: -9999px;' +
-                              'position: absolute;' +
-                              'z-index:100;' +
-                              'top:2px;' +
+                                'text-indent: -9999px;' +
+                                'position: absolute;' +
+                                'z-index:100;' +
+                                'top:2px;' +
                               side + ':2px;';
             a.href = src;
             a.target = '_blank';
@@ -58,7 +58,6 @@ var AudioManager = (function () {
             audio.appendChild(a);
           }
         }
-
       }
     }
   }
@@ -67,3 +66,5 @@ var AudioManager = (function () {
     setup: setup
   }
 }());
+
+AudioManager.setup();

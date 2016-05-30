@@ -9,17 +9,10 @@ var App = (function () {
         console.log('load ended');
         console.log('observe start');
         AudioManager.setup();
-        /*mainElement.addEventListener('ready', function () {
-          console.log('hi 1'); //onreadystatechange
-        });*/
 
         var observer = new MutationObserver(function(mutations) {
           mutations.forEach(function(mutation) {
             AudioManager.setup();
-            //mainElement.addEventListener('onload', AudioManager.setup);
-            /*mainElement.addEventListener('ready', function () {
-              console.log('hi 2');
-            });*/
           });
         });
 
@@ -42,4 +35,4 @@ var App = (function () {
   }
 }());
 
-App.init();
+//App.init();
